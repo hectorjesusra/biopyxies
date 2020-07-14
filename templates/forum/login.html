@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sign In</title>
+
+  <link rel="stylesheet" href="/static/auth/fonts/material-icon/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/auth/css/style.css">
+</head>
+<body>
+  {% for message in messages %}
+    <div class="containermy-3">
+      <div id="messages" class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Well done, {{message}}!</h4>
+        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+        <hr>
+        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+      </div>
+    </div>
+  {% endfor %}
+  <section class="sign-in">
+    <div class="container">
+      <div class="signin-content">
+        <div class="signin-image">
+          <figure><img src="/static/auth/images/signin-image.jpg" alt="sing up image"></figure>
+          <a href="/forum/register" class="signup-image-link">Create an account</a>
+        </div>
+        <div class="signin-form">
+          <h2 class="form-title">Sign in</h2>
+          <form method="POST" class="register-form" id="login-form">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+              <input type="text" name="username" id="your_name" placeholder="Your Name" />
+            </div>
+            <div class="form-group">
+              <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+              <input type="password" name="password" id="your_pass" placeholder="Password" />
+            </div>
+            <div class="form-group">
+              <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+              <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+            </div>
+            <div class="form-group form-button">
+              <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+            </div>
+          </form>
+          <div class="social-login">
+            <span class="social-label">Or login with</span>
+            <ul class="socials">
+              <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+              <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+              <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript" >
+      $(document).ready(function(){
+          $("#id_username").attr('placeholder', '{{form.username.label}}');
+          $("#id_password1").attr('placeholder', '{{form.password1.label}}');
+      });
+  </script>
+  <script src="/static/auth/vendor/jquery/jquery.min.js"></script>
+  <script src="/static/auth/js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+
+</html>
