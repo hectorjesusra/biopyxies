@@ -7,6 +7,5 @@ urlpatterns = [
     path('about', views.about, name='about'),
     path('lab/', include('lab.urls')),
     path('contact', views.contact, name='contact'),
-    path('forum', views.forum, name='forum'),
     path('forum/', include('forum.urls')),
 ]
