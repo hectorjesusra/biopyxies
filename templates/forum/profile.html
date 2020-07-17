@@ -1,0 +1,107 @@
+{% extends 'forum/forum.html' %}
+{% load static %}
+{% block content %}
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="{% static 'forum/css/profile.css' %}" rel="stylesheet">
+<div class="container my-3">
+  {% for message in messages %}
+  <div class="container my-3">
+    <div class="alert alert-success" role="alert"><a href="#" class="alert-link">{{message}}</a>
+  </div>
+  {% endfor %}
+  <div class="row">
+    <div class="col-md-4 mb30">
+      <div class="card">
+
+        <div class="card-content pt20 pb20 profile-header">
+          <img src="{{ user.profile.image.url }}" alt="" class="img-fluid rounded-circle">
+          <h4 class="card-title text-center mb20">{{ user.username }}</h4>
+          <p>
+            Hola, Me llamo {{ user.username }}! Soy un miembro de BioPyxie y me encanta el curso de ICC de la universidad UTEC!
+          </p>
+
+          <hr>
+          <div class="row md-3">
+            <div class="col-md-4 mb20">
+              <h5>947</h5>
+              <h6 class="text-small text-muted">Followers</h6>
+            </div>
+            <div class="col-md-4 mb20">
+              <h5>583</h5>
+              <h6 class="text-small text-muted">Tweets</h6>
+            </div>
+            <div class="col-md-4 mb20">
+              <h5>48</h5>
+              <h6 class="text-small text-muted">Posts</h6>
+            </div>
+          </div>
+          <hr>
+          <div class="skill-bar mb20 clearfix">
+
+            <span>HTML5 / CSS3</span>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%"></div>
+            </div>
+          </div>
+          <!--skill bar-->
+          <div class="skill-bar mb20 clearfix">
+
+            <span>Javascript</span>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 89%"></div>
+            </div>
+          </div>
+          <!--skill bar-->
+          <div class="skill-bar mb20 clearfix">
+
+            <span>Bootstrap</span>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
+            </div>
+          </div>
+          <!--skill bar-->
+          <div class="skill-bar clearfix">
+
+            <span>Coffee</span>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 95%"></div>
+            </div>
+          </div>
+          <br>
+          <!--skill bar-->
+        </div>
+        <!--content-->
+
+      </div>
+    </div>
+    <div class="col-md-8 mb30">
+      <div class="card">
+        <div>
+
+          <!-- Nav tabs -->
+          <ul class="nav tabs-admin" role="tablist">
+            <li role="presentation" class="nav-item"><a class="nav-link active" href="#t1" aria-controls="t1" role="tab" data-toggle="tab">Settings</a></li>
+            <li role="presentation" class="nav-item"><a class="nav-link" href="#t1" aria-controls="t1" role="tab" data-toggle="tab">Posts</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="container my-3">
+            <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Profile Info</legend>
+                {{ u_form }}
+                {{ p_form }}
+              </fieldset>
+              <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

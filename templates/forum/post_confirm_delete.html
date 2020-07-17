@@ -1,0 +1,16 @@
+{% extends 'forum/forumtemplate.html' %}
+{% block box %}
+<div class="container my-3">
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Eliminar Post</legend>
+      <h4>Estás seguro de que quieres borrar el post <i>{{ object.title }}</i>?</h4>
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-danger" type="submit">Yes, Delete</button>
+      <a class="btn btn-secondary" href="{% url 'post-detail' object.id %}">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock box %}

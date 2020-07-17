@@ -1,0 +1,31 @@
+{% extends 'forum/forumtemplate.html' %}
+{% block box %}
+<div class="container">
+  <form method="POST">
+    {% csrf_token %}
+    <div class="card-body">
+      <div class="container">
+        <h3 class="card-title text-center">
+          {% if not post.author == user %}Crear un nuevo Post
+          {% else %}Actualizar Post{% endif %}
+        </h3>
+        <div class="card-body">
+          <h4 class="card-title text-center">
+            {{form.title}}
+          </h4>
+        </div>
+        <div class="card-body">
+          <p class="card-text text-center">{{form.content}}</p>
+        </div>
+        <div class="card footer text-muted">
+          Publicado en {{post.date_posted}}
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success" type="submit">{% if not post.author == user %}Publicar
+          {% else %}Guardar Cambios{% endif %}</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock box %}

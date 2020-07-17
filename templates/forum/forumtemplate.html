@@ -1,0 +1,67 @@
+{% extends 'forum/forum.html' %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="my-4">BioPyxie
+        <small>forums</small>
+      </h1>
+      {% block box %}
+      {% endblock box %}
+    </div>
+    <div class="col-md-4">
+      <div class="card my-4">
+        <h5 class="card-header">Hola, {{user.username}}</h5>
+        <div class="card-body">
+          Bienvenido a la comunidad de Biopyxie, esperamos crecer mucho contigo <br>
+          No dudes en postear en nuestro foro sobre <i><b>Bioquímica, BioPyxie y mucho más!</b></i><br>También puedes aportar comentando en los posts de tus compañeros!
+        </div>
+      </div>
+      <div class="card my-4">
+        <h5 class="card-header">Search</h5>
+        <div class="card-body">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-append">
+              <button class="btn btn-secondary" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="card my-4">
+        <h5 class="card-header">Categories</h5>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#">BioPyxie</a>
+                </li>
+                <li>
+                  <a href="#">Bioquímica</a>
+                </li>
+                <li>
+                  <a href="#">Random</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#">JavaScript</a>
+                </li>
+                <li>
+                  <a href="#">CSS</a>
+                </li>
+                <li>
+                  <a href="#">Tutorials</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'forum/forumtemplate.html' %}
+{% block box %}
+<div class="card mb-4">
+  <div class="card-body">
+    <div class="container my-3">
+      <h2 class="card-title">{{ post.title }}</h2>
+      {% if post.author == request.user %}
+      <a class="btn btn-secondary" href="{% url 'post-update' object.id %}">Modificar</a>
+      <a class="btn btn-danger" href="{% url 'post-delete' object.id %}">Eliminar</a>
+      {% endif %}
+    </div>
+    <div class="card-footer text-muted">
+      Posted on {{ post.date_posted }} by
+      <a href="#">{{ post.author }}</a>
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{ post.content }}</p>
+    </div>
+  </div>
+</div>
+{% endblock box %}
